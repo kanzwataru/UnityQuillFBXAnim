@@ -5,6 +5,7 @@ using UnityEngine;
 namespace QuillAnim {
 public class QuillAnimNode : StateMachineBehaviour {
 	public int frameRate = 12;
+	public bool persistFrames = false;
 	public GameObject animationPrefab;
 	public bool resetFrameOnEnter;
 
@@ -23,7 +24,7 @@ public class QuillAnimNode : StateMachineBehaviour {
 		var anim_object_xform = anim_object.transform;
 		anim_object_xform.parent = this_object.transform;
 
-		_animInstance = new QuillAnimation(anim_object_xform, frameRate);
+		_animInstance = new QuillAnimation(anim_object_xform, frameRate, persistFrames);
 		_animObject = anim_object;
 	}
 

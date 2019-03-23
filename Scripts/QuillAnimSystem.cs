@@ -45,12 +45,14 @@ public class QuillAnimation {
 	private GameObject[][] _layersFrames;
     private int _overallFrameCount;
     private int _currentFrame = 0;
+	private bool _persist_frames;
 
-	private int frameRate;
+	private int _frameRate;
 
-	public QuillAnimation(Transform animation_root, int frameRate) {
-		this.frameRate = frameRate;
-		QuillAnimSystem.instance.RequestFPSCounter(frameRate);
+	public QuillAnimation(Transform animation_root, int frameRate, bool keep_layers_on) {
+		_persist_frames = keep_layers_on;
+		_frameRate = frameRate;
+		QuillAnimSystem.instance.RequestFPSCounter(_frameRate);
 
 		var root = animation_root.Find("BakedMesh");
 		if(root) {
@@ -83,7 +85,7 @@ public class QuillAnimation {
 	}
 
 	public void Update() {
-		if(QuillAnimSystem.instance.ShouldUpdate(frameRate)) {
+		if(QuillAnimSystem.instance.ShouldUpdate(_frameRate)) {
             int next_frame = _currentFrame + 1;
             if(next_frame == _overallFrameCount) {
                 next_frame = 0;
@@ -100,6 +102,11 @@ public class QuillAnimation {
 
 			if(next_frame < layer.Length) {
 				layer[next_frame].SetActive(true);
+			}
+			else {
+				if(_persist_frames) {
+					layer[layer.Length - 1].SetActive(true);
+				}
 			}
 		}
 
