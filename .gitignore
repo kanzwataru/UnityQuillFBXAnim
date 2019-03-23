@@ -43,4 +43,4 @@ Assets/StreamingAssets/crashlytics-build.properties
 .vscode/
 
 # No meta for releasing stuff
-*.meta
+#*.meta
