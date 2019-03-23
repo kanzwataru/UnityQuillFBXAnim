@@ -14,8 +14,6 @@ Simply add it onto a state inside the Animator, drag-and-drop the desired animat
 and set up your transitions. (make sure to turn off exit time and transition time since there is no blending)
 It will automatically spawn the animation mesh when playing the game. 
 
-##### If you want to have a visual for seeing the character in the editor, you can attach any one of its animations to the 
-##### GameObject that contains the Animator, and set its tag to EditorOnly. It will be deleted automatically by QuillAnimNode
-##### (and Unity will automatically exclude it from builds, so there is no performance penalty).
+##### If you want to have a visual for seeing the character in the editor, you can attach any one of its animations to the GameObject that contains the Animator, and set its tag to EditorOnly. It will be deleted automatically by QuillAnimNode (and Unity will automatically exclude it from builds, so there is no performance penalty).
 
 Example art by Nick Ladd
