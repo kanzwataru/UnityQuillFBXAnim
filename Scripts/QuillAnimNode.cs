@@ -17,6 +17,12 @@ public class QuillAnimNode : StateMachineBehaviour {
 	private void CreateAnimInstance(GameObject this_object) {
 		QuillAnimSystem.instance.RequestFPSCounter(frameRate);
 
+		/* destroy placeholders */
+		foreach(Transform child in this_object.transform) {
+			if(child.tag == "EditorOnly")
+				Destroy(child.gameObject);
+		}
+
 		_animInstance = Instantiate(animationPrefab, this_object.transform.position, this_object.transform.rotation);
 		var xform = _animInstance.transform;
 		xform.parent = this_object.transform;
