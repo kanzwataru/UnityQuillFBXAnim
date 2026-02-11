@@ -26,6 +26,6 @@ If you want to have a visual for seeing the character in the editor, you can att
 
 # Supported Unity Versions
 
-This was original made for Unity 2019, but still confirmed working with Unity 6!
+This was original made for Unity 2019, but still confirmed working with Unity 6 (in 2026)!
 
 ###### Example art by Nick Ladd
